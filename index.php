@@ -1,7 +1,6 @@
 <?php
 
-require_once 'router/router.php';
-require_once 'libraries/auth.php';
+require_once 'includes/app.php';
 
 $section = $_GET[ 's' ] ?? 'home';
 

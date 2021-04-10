@@ -1,0 +1,17 @@
+{
+   "name": "hernan/bienes-raices_oop",
+   "description": "Creando un proyecto con  OOP",
+   "type": "project",
+   "authors": [
+      {
+         "name": "Hernan Arica",
+         "email": "hernanaricammm@gmail.com"
+      }
+   ],
+   "require": {},
+   "autoload": {
+      "psr-4": {
+         "App\\": "Classes"
+      }
+   }
+}

@@ -1,6 +1,6 @@
 <?php
 
-require_once '../dataBase/database.php';
+// require_once '../dataBase/database.php';
 $db = connectionDB();
 
 // Nos aseguramos que sea un Número

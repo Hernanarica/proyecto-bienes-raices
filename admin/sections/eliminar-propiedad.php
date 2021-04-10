@@ -1,5 +1,5 @@
 <?php
-require_once '../dataBase/dataBase.php';
+// require_once '../dataBase/dataBase.php';
 $db = connectionDB();
 $id = filter_var($_GET[ 'id' ], FILTER_VALIDATE_INT);
 

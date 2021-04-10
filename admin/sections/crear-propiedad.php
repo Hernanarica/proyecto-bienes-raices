@@ -1,6 +1,11 @@
 <?php
 
-require_once '../dataBase/database.php';
+use App\Propiedad;
+
+$propiedad = new Propiedad();
+debugger($propiedad);
+
+// require_once '../dataBase/database.php';
 date_default_timezone_set('America/Argentina/Buenos_Aires');
 
 // Guardamos nuestra conexión en una variable

@@ -1,6 +1,5 @@
 <?php
-require_once 'router/router.php';
-require_once '../libraries/auth.php';
+require_once 'bootstraping/app.php';
 
 $section = $_GET[ 's' ] ?? 'panel';
 
