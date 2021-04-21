@@ -4,11 +4,8 @@ require_once 'includes/app.php';
 
 $section = $_GET[ 's' ] ?? 'home';
 
-if (!isset($routes[ $section ])) {
-   $section = 404;
-}
+if (!isset($routes[ $section ])) $section = 404;
 
-$auth = isAuth();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -36,19 +33,16 @@ $auth = isAuth();
 							<a href="index.php?s=anuncios">Anuncios</a>
 							<a href="index.php?s=blog">Blog</a>
 							<a href="index.php?s=contacto">Contacto</a>
-                     <?php if ($auth): ?>
-								<a href="admin/actions/logOuth.php">Cerrar sesión</a>
-                     <?php else: ?>
-								<a href="index.php?s=login">Iniciar sesión</a>
-                     <?php endif; ?>
+							<a href="admin/actions/logOuth.php">Cerrar sesión</a>
+							<a href="index.php?s=login">Iniciar sesión</a>
 						</nav>
 					</div>
 				</div>
 			</div>
 		</header>
-      <?php
-      require_once 'sections/' . $section . '.php';
-      ?>
+		<?php
+		require_once 'sections/' . $section . '.php';
+		?>
 		<footer class="footer seccion">
 			<div class="contenedor contenedor-footer">
 				<nav class="navegacion">

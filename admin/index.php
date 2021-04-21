@@ -4,12 +4,7 @@ require_once 'bootstraping/app.php';
 $section = $_GET[ 's' ] ?? 'panel';
 
 if (!isset($routes[ $section ])) {
-   $section = 404;
-}
-
-$auth = isAuth();
-if (!$auth) {
-   header('location: ../index.php?s=login');
+	$section = 404;
 }
 ?>
 <!DOCTYPE html>
@@ -38,17 +33,15 @@ if (!$auth) {
 							<a href="../index.php?s=anuncios">Anuncios</a>
 							<a href="../index.php?s=blog">Blog</a>
 							<a href="../index.php?s=contacto">Contacto</a>
-                     <?php if ($auth): ?>
-								<a href="actions/logOuth.php">Cerrar sesión</a>
-                     <?php endif; ?>
+							<a href="actions/logOuth.php">Cerrar sesión</a>
 						</nav>
 					</div>
 				</div>
 			</div>
 		</header>
-      <?php
-      require_once 'sections/' . $section . '.php';
-      ?>
+		<?php
+		require_once 'sections/' . $section . '.php';
+		?>
 		<footer class="footer seccion">
 			<div class="contenedor contenedor-footer">
 				<nav class="navegacion">
