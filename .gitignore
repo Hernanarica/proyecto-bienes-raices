@@ -1,1 +1,4 @@
-/vendor/
+#Carpeta Vendor
+vendor
+#Carpeta IDEA
+.idea

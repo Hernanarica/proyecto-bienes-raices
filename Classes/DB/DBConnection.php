@@ -23,7 +23,7 @@ class DBConnection
 	{
 		if (self::$db === null) {
 			$db_host     = 'localhost';
-			$db_name     = 'bienes_raices';
+			$db_name     = 'proyecto_bienes_raices';
 			$db_user     = 'root';
 			$db_password = '';
 			$db_dns      = "mysql:host={$db_host};dbname={$db_name};charset?utf8mb4";

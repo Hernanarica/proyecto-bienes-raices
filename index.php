@@ -6,6 +6,9 @@ $section = $_GET[ 's' ] ?? 'home';
 
 if (!isset($routes[ $section ])) $section = 404;
 
+echo "<pre>";
+print_r($_SESSION);
+echo "</pre>";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -33,15 +36,19 @@ if (!isset($routes[ $section ])) $section = 404;
 							<a href="index.php?s=anuncios">Anuncios</a>
 							<a href="index.php?s=blog">Blog</a>
 							<a href="index.php?s=contacto">Contacto</a>
-							<a href="admin/actions/logOuth.php">Cerrar sesión</a>
-							<a href="index.php?s=login">Iniciar sesión</a>
+							<?php if ($_SESSION[ 'user' ][ 'email' ]): ?>
+								<a href="">Cerrar sesión (<?php echo $_SESSION[ 'user' ][ 'email' ]; ?>)</a>
+							<?php else: ?>
+								<a href="index.php?s=login">Iniciar sesión</a>
+								<a href="index.php?s=registro">Registrate</a>
+							<?php endif; ?>
 						</nav>
 					</div>
 				</div>
 			</div>
 		</header>
 		<?php
-		require_once 'sections/' . $section . '.php';
+		require_once './sections/' . $section . '.php';
 		?>
 		<footer class="footer seccion">
 			<div class="contenedor contenedor-footer">
