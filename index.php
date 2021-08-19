@@ -1,14 +1,12 @@
 <?php
 
+use App\Session\Session;
+
 require_once 'includes/app.php';
 
 $section = $_GET[ 's' ] ?? 'home';
 
 if (!isset($routes[ $section ])) $section = 404;
-
-echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -36,8 +34,8 @@ echo "</pre>";
 							<a href="index.php?s=anuncios">Anuncios</a>
 							<a href="index.php?s=blog">Blog</a>
 							<a href="index.php?s=contacto">Contacto</a>
-							<?php if ($_SESSION[ 'user' ][ 'email' ]): ?>
-								<a href="">Cerrar sesión (<?php echo $_SESSION[ 'user' ][ 'email' ]; ?>)</a>
+							<?php if (Session::get('user')): ?>
+								<a href="./actions/logout.php">Cerrar sesión (Acá va el email)</a>
 							<?php else: ?>
 								<a href="index.php?s=login">Iniciar sesión</a>
 								<a href="index.php?s=registro">Registrate</a>

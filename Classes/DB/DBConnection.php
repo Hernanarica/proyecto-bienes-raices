@@ -36,7 +36,7 @@ class DBConnection
 }
 
 //$db    = DBConnection::getConnection();
-//$query = "SELECT * FROM propiedades";
+//$query = "SELECT * FROM properties";
 //$stmt  = $db->prepare($query);
 //$stmt->execute();
 //$salida = [];
