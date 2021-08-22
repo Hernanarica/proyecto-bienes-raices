@@ -1,12 +1,15 @@
 <?php
 
 use App\Session\Session;
+use App\Auth\Auth;
 
 require_once 'includes/app.php';
 
 $section = $_GET[ 's' ] ?? 'home';
 
 if (!isset($routes[ $section ])) $section = 404;
+
+$auth = new Auth();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -34,8 +37,8 @@ if (!isset($routes[ $section ])) $section = 404;
 							<a href="index.php?s=anuncios">Anuncios</a>
 							<a href="index.php?s=blog">Blog</a>
 							<a href="index.php?s=contacto">Contacto</a>
-							<?php if (Session::get('user')): ?>
-								<a href="./actions/logout.php">Cerrar sesión (Acá va el email)</a>
+							<?php if ($auth->isAuth()): ?>
+								<a href="./actions/logout.php">Cerrar sesión (<?php echo $auth->getAuthEmail(); ?>)</a>
 							<?php else: ?>
 								<a href="index.php?s=login">Iniciar sesión</a>
 								<a href="index.php?s=registro">Registrate</a>

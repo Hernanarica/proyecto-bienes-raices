@@ -1,9 +1,8 @@
 <?php
 
-
 namespace App\Auth;
 
-
+use App\Session\Session;
 use App\Usuario\Usuario;
 
 class Auth
@@ -33,6 +32,22 @@ class Auth
 		}
 
 		return false;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getAuthEmail(): mixed
+	{
+		return Session::get('user') ? Session::get('user')[ 'email' ] : null;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function isAuth()
+	{
+		return Session::get('user');
 	}
 
 	/**

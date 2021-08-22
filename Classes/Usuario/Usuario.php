@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Usuario;
 
 use App\DB\DBConnection;

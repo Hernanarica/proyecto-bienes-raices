@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Session;
-
 
 class Session
 {
@@ -25,10 +23,7 @@ class Session
 	 */
 	public static function get($key): mixed
 	{
-		if (isset($_SESSION[ $key ])) {
-			return $_SESSION[ $key ];
-		}
-		return null;
+		return $_SESSION[ $key ] ?? null;
 	}
 
 	public static function flash($key, $value)

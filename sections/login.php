@@ -1,3 +1,14 @@
+<?php
+
+use App\Session\Session;
+
+echo "<pre>";
+print_r(Session::get('errors'));
+echo "</pre>";
+echo "<pre>";
+print_r(Session::get('oldData'));
+echo "</pre>";
+?>
 <main class="contenedor seccion contenido-centrado">
 	<h1>Completa los datos para iniciar sesión</h1>
 	<form action="actions/login.php" method="post" class="formulario">
