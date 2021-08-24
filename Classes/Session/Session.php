@@ -26,9 +26,22 @@ class Session
 		return $_SESSION[ $key ] ?? null;
 	}
 
-	public static function flash($key, $value)
+	/**
+	 * @param $key
+	 * @return bool
+	 */
+	public static function has($key): bool
 	{
+		return isset($_SESSION[ $key ]);
+	}
 
+	public static function flash($key)
+	{
+		if (!self::has($key)) return null;
+
+		$val = self::get($key);
+		self::remove($key);
+		return $val;
 	}
 
 	/**

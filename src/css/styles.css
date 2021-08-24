@@ -7,6 +7,31 @@
     border-radius: 1rem;
 }
 
+.status-error,
+.status-success {
+    position: absolute;
+    top: 110px;
+    left: 50px;
+}
+
+.status-error {
+    inline-size: fit-content;
+    padding-inline: 1rem;
+    padding-block: 8px;
+    border-radius: 1rem;
+    background-color: #C62828;
+    color: white;
+}
+
+.status-success {
+    inline-size: fit-content;
+    padding-inline: 1rem;
+    padding-block: 8px;
+    border-radius: 1rem;
+    background-color: #71b100;
+    color: white;
+}
+
 .exito {
     background-color: #71b100;
 }
@@ -68,3 +93,6 @@ a.boton-rojito-block {
     background-color: #b7060e;
 }
 
+body {
+    position: relative;
+}

@@ -10,6 +10,8 @@ $section = $_GET[ 's' ] ?? 'home';
 if (!isset($routes[ $section ])) $section = 404;
 
 $auth = new Auth();
+
+$statusNotification = Session::flash('status-notification');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -48,6 +50,11 @@ $auth = new Auth();
 				</div>
 			</div>
 		</header>
+		<?php if (isset($statusNotification[ 'status' ])): ?>
+			<div class="status-<?php echo $statusNotification[ 'status' ]; ?>">
+				<?php echo $statusNotification[ 'message' ]; ?>
+			</div>
+		<?php endif; ?>
 		<?php
 		require_once './sections/' . $section . '.php';
 		?>
