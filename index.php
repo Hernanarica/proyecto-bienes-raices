@@ -3,13 +3,24 @@
 use App\Session\Session;
 use App\Auth\Auth;
 
-require_once 'includes/app.php';
+require_once 'bootstrapping/app.php';
 
 $section = $_GET[ 's' ] ?? 'home';
 
 if (!isset($routes[ $section ])) $section = 404;
 
 $auth = new Auth();
+
+if (!$auth->isAuth()) {
+	switch ($section) {
+		case 'crear-propiedad':
+		case 'editar-propiedad':
+		case 'eliminar-propiedad':
+		case 'panel':
+			header('location: index.php?s=login');
+			break;
+	}
+}
 
 $statusNotification = Session::flash('status-notification');
 ?>
@@ -40,6 +51,7 @@ $statusNotification = Session::flash('status-notification');
 							<a href="index.php?s=blog">Blog</a>
 							<a href="index.php?s=contacto">Contacto</a>
 							<?php if ($auth->isAuth()): ?>
+								<a href="./admin/index.php">Panel de control</a>
 								<a href="./actions/logout.php">Cerrar sesión (<?php echo $auth->getAuthEmail(); ?>)</a>
 							<?php else: ?>
 								<a href="index.php?s=login">Iniciar sesión</a>

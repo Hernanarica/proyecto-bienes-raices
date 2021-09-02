@@ -1,5 +1,14 @@
 <?php
-require_once 'bootstraping/app.php';
+
+use App\Session\Session;
+use App\Auth\Auth;
+
+require_once '../bootstrapping/app.php';
+$auth = new Auth();
+
+if (!$auth->isAuth()) {
+	header('location: ../index.php?s=login');
+}
 
 $section = $_GET[ 's' ] ?? 'panel';
 
@@ -29,11 +38,12 @@ if (!isset($routes[ $section ])) {
 					<div class="derecha">
 						<img class="dark-mode-boton" src="../build/img/dark-mode.svg">
 						<nav class="navegacion">
+							<a href="../index.php?s=home">Home</a>
 							<a href="../index.php?s=nosotros">Nosotros</a>
 							<a href="../index.php?s=anuncios">Anuncios</a>
 							<a href="../index.php?s=blog">Blog</a>
 							<a href="../index.php?s=contacto">Contacto</a>
-							<a href="actions/logOuth.php">Cerrar sesión</a>
+							<a href="actions/logOuth.php">Cerrar sesión(<?php echo $auth->getAuthEmail(); ?>)</a>
 						</nav>
 					</div>
 				</div>
